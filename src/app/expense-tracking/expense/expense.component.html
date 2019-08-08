@@ -39,10 +39,14 @@
     </ul>
   </div>
   <div class="col-md-6 ">
-    <form class="form-group">
+    <form ng-submit="addExpense()"class="form-group">
       <h4>Add new expense</h4><br>
       <label for="description">Description:</label>
-      <input type="text" class="form-control">
+      <input id="description" type="text" class="form-control">
+      <label for="amount">Amount spent:</label>
+      <input id="amount" type="number" class="form-control">
+      <label for="category">Category:</label>
+      <input id="category" type="number" class="form-control">
     </form>
   </div>
 </div>
