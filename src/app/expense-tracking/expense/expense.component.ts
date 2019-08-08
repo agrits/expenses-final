@@ -11,6 +11,7 @@ export class ExpenseComponent implements OnInit {
   public expenses: Expense[] = []
   public selectedCategories = []
   public categories = ["Household", "Commute", "Other"]
+  public selectedExpense;
   constructor(private expenseService: ExpenseService) { }
 
   ngOnInit() {
