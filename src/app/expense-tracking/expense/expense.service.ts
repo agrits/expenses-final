@@ -8,7 +8,7 @@ import { Expense } from './expense';
   providedIn: 'root'
 })
 export class ExpenseService {
-  private baseUrl = "/api/expenses"
+  private baseUrl = "http://expense-db-json.herokuapp.com/expenses"
   constructor(private http: HttpClient) {}
 
   public getExpenses(): Observable<Expense[]>{
