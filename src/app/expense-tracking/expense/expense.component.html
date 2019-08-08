@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <h4>Current expenses</h4><br>
     <h4>Selected</h4>
-    <li *ngIf="selectedExpenses" class="list-group-item">
+    <li *ngIf="selectedExpense" class="list-group-item">
       <span class="badge badge-primary">{{selectedExpense.id}}</span>
       <span> {{selectedExpense.description}}: {{selectedExpense.amountSpent}}</span>
       <span class="badge badge-info float-right mt-2">{{selectedExpense.category}}</span>
