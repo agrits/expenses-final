@@ -9,11 +9,22 @@ import { Expense } from './expense';
 })
 export class ExpenseComponent implements OnInit {
   public expenses: Expense[] = []
-  public categories = []
+  public selectedCategories = []
+  public categories = ["Household", "Commute", "Other"]
   constructor(private expenseService: ExpenseService) { }
 
   ngOnInit() {
     this.expenseService.getExpenses().subscribe(expenses => this.expenses = expenses)
+  }
+
+  public toggleSelection(category){
+    console.log("Selected: "+category)
+    if(this.selectedCategories.includes(category)){
+      this.selectedCategories.splice(this.selectedCategories.indexOf(category), 1)
+    }
+    else{
+      this.selectedCategories.push(category)
+    }
   }
 
 }
