@@ -16,4 +16,16 @@ export class ExpenseService {
       map(data => data.map(json => Expense.fromJson(json)))
     )
   }
+
+  public deleteExpense(id: number){
+    return this.http.delete(this.baseUrl+"/"+id)
+  }
+
+  public addExpense(description, amountSpent, category): Observable<Expense>{
+    return this.http.post<Expense>(this.baseUrl, {"description": description, 
+                                        "amountSpent": amountSpent,
+                                        "category": category}).pipe(
+                                          map(obj => Expense.fromJson(obj))
+                                        )
+  }
 }

@@ -12,10 +12,53 @@ export class ExpenseComponent implements OnInit {
   public selectedCategories = []
   public categories = ["Household", "Commute", "Other"]
   public selectedExpense;
+  public deleting = false;
+  public duplicating = false;
+  public formExpense: Expense = new Expense(null, "", 0, "");
+  public saving = false;
   constructor(private expenseService: ExpenseService) { }
 
   ngOnInit() {
-    this.expenseService.getExpenses().subscribe(expenses => this.expenses = expenses)
+    this.updateExpenses()
+  }
+
+  
+  public updateExpenses(onDone: () => void = function(){}){
+      this.expenseService.getExpenses().subscribe(expenses => 
+        {
+          this.expenses = expenses
+          onDone()
+        })
+      
+  }
+
+  public addFromForm(){
+    this.saving = true
+    this.expenseService.addExpense(this.formExpense.description, 
+                                  this.formExpense.amountSpent,
+                                  this.formExpense.category).subscribe(
+                                    obj => this.updateExpenses(() => this.saving=false)
+                                  )
+  }
+  public deleteSelected(){
+    this.deleting = true;
+    this.expenseService.deleteExpense(this.selectedExpense.id).subscribe( 
+      obj => {
+              this.updateExpenses(() => {
+                this.deleting=false
+                this.selectedExpense = null
+              })
+              ;}
+    )
+    
+  }
+  public duplicateSelected(){
+    this.duplicating = true
+    this.expenseService.addExpense(this.selectedExpense.description, 
+                                  this.selectedExpense.amountSpent,
+                                  this.selectedExpense.category).subscribe(
+                                    obj => this.updateExpenses(() => this.duplicating=false)
+                                  )
   }
 
   public toggleSelection(category){

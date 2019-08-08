@@ -6,7 +6,15 @@
       <span class="badge badge-primary">{{selectedExpense.id}}</span>
       <span> {{selectedExpense.description}}: {{selectedExpense.amountSpent}}</span>
       <span class="badge badge-info float-right mt-2">{{selectedExpense.category}}</span>
+      <br>
+      <button class="btn btn-sm btn-primary" (click)="deleteSelected()">
+      <span *ngIf="!deleting">Delete</span><span *ngIf="deleting"class="spinner-border spinner-border-sm"></span>
+      </button>&nbsp;
+    <button class="btn btn-sm btn-primary" (click)="duplicateSelected()">
+    <span *ngIf="!duplicating">Duplicate</span><span *ngIf="duplicating"class="spinner-border spinner-border-sm"></span>
+    </button>
     </li>
+    
     <hr>
     <h4>Expense list:</h4>
     <div class="form-check">
@@ -23,7 +31,7 @@
         <label for="check{{category}}" class="form-check-label">{{category}}</label><br>
     </ng-container>
     </div>
-    <ul class="list-group">
+    <ul class="list-group" (clickOutside)="selectedExpense=null">
         <ng-container *ngFor="let expense of expenses">
             <li class="list-group-item"  (click)="selectedExpense=expense"
                 *ngIf="selectedCategories.includes(expense.category) || selectedCategories.length == 0">
@@ -42,11 +50,18 @@
     <form ng-submit="addExpense()"class="form-group">
       <h4>Add new expense</h4><br>
       <label for="description">Description:</label>
-      <input id="description" type="text" class="form-control">
-      <label for="amount">Amount spent:</label>
-      <input id="amount" type="number" class="form-control">
+      <input id="description" [(ngModel)]="formExpense.description" type="text" name="description" class="form-control">
+      <label for="amount" >Amount spent:</label>
+      <input id="amount" [(ngModel)]="formExpense.amountSpent" name="amountSpent" type="number" class="form-control">
       <label for="category">Category:</label>
-      <input id="category" type="number" class="form-control">
+      <select id="category" [(ngModel)]="formExpense.category" name="category" class="form-control">
+        <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+      </select>
+      <br>
+      <button *ngIf="!saving" class="form-control" style="color:black;" (click)="addFromForm()">Add</button>
+        <button *ngIf="saving" class="form-control">
+            <span class="spinner-border spinner-border-sm"></span>
+        </button>
     </form>
   </div>
 </div>

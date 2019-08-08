@@ -11,6 +11,7 @@ import { Expense } from '../expense/expense';
 })
 export class DetailsComponent implements OnInit {
   public expense: Expense
+  public saved = true
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -22,6 +23,12 @@ export class DetailsComponent implements OnInit {
     this.detailsService.getExpense(id).subscribe(
       expense => this.expense = expense
     )
+  }
+
+  saveExpense(){
+    this.saved = false
+    this.detailsService.saveExpense(this.expense).subscribe(obj =>
+      this.saved = true)
   }
 
 }
