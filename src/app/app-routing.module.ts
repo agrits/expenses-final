@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ExpenseComponent } from './expense-tracking/expense/expense.component';
-import { AppComponent } from './app.component';
-import { DetailsComponent } from './expense-tracking/details/details.component';
+import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { DetailsComponent } from './expense-tracking/details/details.component';
+import { ExpenseComponent } from './expense-tracking/expense/expense.component';
 
 
 const routes: Routes = [

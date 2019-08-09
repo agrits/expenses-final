@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { DetailsService } from './details.service';
-import { switchMap } from 'rxjs/operators';
-import { Expense } from '../expense/expense';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',

@@ -11,7 +11,7 @@ export class DetailsService {
 
   constructor(private http: HttpClient) { }
 
-  private baseUrl = "/api/expenses"
+  private baseUrl = "http://expense-db-json.herokuapp.com/expenses"
 
   public getExpense(id): Observable<Expense>{
     return this.http.get<Expense>(this.baseUrl+"/"+id).pipe(
