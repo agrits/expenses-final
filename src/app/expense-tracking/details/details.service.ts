@@ -11,7 +11,7 @@ export class DetailsService {
 
   constructor(private http: HttpClient) { }
 
-  private baseUrl = "https://expense-db-json.herokuapp.com/expenses"
+  private baseUrl = "https://us-central1-json-server-2db29.cloudfunctions.net/app/expenses"
 
   public getExpense(id): Observable<Expense>{
     return this.http.get<Expense>(this.baseUrl+"/"+id).pipe(
