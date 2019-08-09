@@ -33,6 +33,10 @@ export class ExpenseComponent implements OnInit {
   }
 
   public addFromForm(){
+    if(!this.formExpense.description || !this.formExpense.category || !this.formExpense.amountSpent){
+      alert("Fill all fields!") 
+      return 0;
+    }
     this.saving = true
     this.expenseService.addExpense(this.formExpense.description, 
                                   this.formExpense.amountSpent,

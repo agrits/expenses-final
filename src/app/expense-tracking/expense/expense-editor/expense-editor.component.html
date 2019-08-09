@@ -12,8 +12,8 @@
 <option value="Other">Other</option>
 </select>
 <br>
-<button *ngIf="!saving" class="form-control" style="color:black;" (click)="saveExpense()">Save</button>
-<button *ngIf="saving" class="form-control">
+<button *ngIf="!saving" [disabled]="!expenseForm.valid" class="form-control" style="color:black;" (click)="saveExpense()">Save</button>
+<button *ngIf="saving" disabled class="form-control">
   <span class="spinner-border spinner-border-sm"></span>
 </button>
 </form>

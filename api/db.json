@@ -2,7 +2,7 @@
   "expenses": [
     {
       "id": 1,
-      "description": "Sample description",
+      "description": "ABCDF",
       "amountSpent": 7998,
       "category": "Commute"
     },
@@ -5999,6 +5999,24 @@
       "description": "Sample description",
       "amountSpent": 1380,
       "category": "Household"
+    },
+    {
+      "description": "asd",
+      "amountSpent": 2000,
+      "category": "Commute",
+      "id": 1001
+    },
+    {
+      "description": "",
+      "amountSpent": 2000,
+      "category": "Commute",
+      "id": 1002
+    },
+    {
+      "description": "",
+      "amountSpent": 0,
+      "category": "Household",
+      "id": 1003
     }
   ]
 }

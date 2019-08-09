@@ -20,7 +20,7 @@ export class DetailsService {
   }
 
   public saveExpense(expense: Expense){
-    return this.http.patch<Expense>(this.baseUrl+"/"+expense.id, 
+    return this.http.put<Expense>(this.baseUrl+"/"+expense.id, 
     {
       "description": expense.description,
       "amountSpent": expense.amountSpent,
