@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "api": "json-server --watch api/db.json --port 9020 --routes api/routes.json",
-    "postinstall": "ng build --aot --prod"
+    "launch": "ng run api && ng serve --open"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +23,7 @@
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
+    "angular2-hotkeys": "^2.1.4",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.3.1",
     "express": "^4.17.1",
@@ -53,7 +54,9 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "json-server": "^0.15.0",
+    "ng-click-outside": "^5.0.0"
   },
   "engines": {
     "node": "10.15.3",

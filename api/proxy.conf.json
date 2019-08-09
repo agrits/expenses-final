@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://expense-db-json.herokuapp.com",
+      "target": "http://localhost:9020",
       "secure": false
     }
   }

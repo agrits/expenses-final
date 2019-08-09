@@ -1,20 +1,3 @@
-<div *ngIf="expense" class="container">
-<h4>Id: {{expense.id}}</h4>
-<form class="form-group">
-<label for="description">Description:</label>
-<input class="form-control"name = "description" type="text" id="description" [(ngModel)]="expense.description">
-<label for="amount">Amount spent:</label>
-<input class="form-control" name = "amountSpent" type="number" id="amount" [(ngModel)]="expense.amountSpent">
-<label for="category">Category:</label>
-<select class="form-control" name = "category" type="text" id="category" [(ngModel)]="expense.category">
-<option value="Household">Household</option>
-<option value="Commute">Commute</option>
-<option value="Other">Other</option>
-</select>
-<br>
-<button *ngIf="saved" class="form-control" style="color:black;" (click)="saveExpense()">Save</button>
-<button *ngIf="!saved" class="form-control">
-  <span class="spinner-border spinner-border-sm"></span>
-</button>
-</form>
+<div *ngIf="expenseId" class="container">
+<app-expense-editor expenseId="{{expenseId}}"></app-expense-editor>
 </div>

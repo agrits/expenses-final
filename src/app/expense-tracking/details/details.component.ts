@@ -10,25 +10,14 @@ import { Expense } from '../expense/expense';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  public expense: Expense
+  public expenseId;
   public saved = true
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private detailsService: DetailsService
+    private router: Router
   ) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
-    this.detailsService.getExpense(id).subscribe(
-      expense => this.expense = expense
-    )
+    this.expenseId = this.route.snapshot.paramMap.get('id');
   }
-
-  saveExpense(){
-    this.saved = false
-    this.detailsService.saveExpense(this.expense).subscribe(obj =>
-      this.saved = true)
-  }
-
 }

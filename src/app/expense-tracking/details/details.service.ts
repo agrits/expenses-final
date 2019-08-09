@@ -11,7 +11,7 @@ export class DetailsService {
 
   constructor(private http: HttpClient) { }
 
-  private baseUrl = "https://us-central1-json-server-2db29.cloudfunctions.net/app/expenses"
+  private baseUrl = "/api/expenses"
 
   public getExpense(id): Observable<Expense>{
     return this.http.get<Expense>(this.baseUrl+"/"+id).pipe(

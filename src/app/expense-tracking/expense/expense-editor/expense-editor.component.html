@@ -1,0 +1,20 @@
+<ng-container *ngIf="expense">
+<h4>Id: {{expenseId}}</h4>
+<form class="form-group" [formGroup]="expenseForm">
+<label for="description">Description:</label>
+<input class="form-control"name = "description" type="text" id="description" formControlName="description">
+<label for="amount">Amount spent:</label>
+<input class="form-control" name = "amountSpent" type="number" id="amount" formControlName="amountSpent">
+<label for="category">Category:</label>
+<select class="form-control" name = "category" type="text" id="category" formControlName="category">
+<option value="Household">Household</option>
+<option value="Commute">Commute</option>
+<option value="Other">Other</option>
+</select>
+<br>
+<button *ngIf="!saving" class="form-control" style="color:black;" (click)="saveExpense()">Save</button>
+<button *ngIf="saving" class="form-control">
+  <span class="spinner-border spinner-border-sm"></span>
+</button>
+</form>
+</ng-container>

@@ -4,7 +4,7 @@
     <h4>Selected</h4>
     <li *ngIf="selectedExpense" class="list-group-item">
       <span class="badge badge-primary">{{selectedExpense.id}}</span>
-      <span> {{selectedExpense.description}}: {{selectedExpense.amountSpent}}</span>
+      <span> {{selectedExpense | descriptionAndAmount}}</span>
       <span class="badge badge-info float-right mt-2">{{selectedExpense.category}}</span>
       <br>
       <button class="btn btn-sm btn-primary" (click)="deleteSelected()">
@@ -37,7 +37,7 @@
                 *ngIf="selectedCategories.includes(expense.category) || selectedCategories.length == 0">
 
                 <span class="badge badge-primary">{{expense.id}}</span>
-                <span> {{expense.description}}: {{expense.amountSpent}}</span>
+                <span> {{expense | descriptionAndAmount}}</span>
                 <span class="badge badge-info float-right mt-2">{{expense.category}}</span>
                 <br>
                 <a target="_blank" routerLink="/expenses/{{expense.id}}">Details</a>
